@@ -9,14 +9,15 @@ function begin(){
         if(variantNumber + quantityV > 9999999999) {
             alert('!ERROR¡ La cantidad de valores excede el numero permitido');
         }
-        for(let i = 0; i < quantityV; i++){
-            varianNumber += 1;
-            let row = "<tr><td>" + i + "</td><td>" + variantNumber + "</td></tr>";
-            let barcode = document.createElement("tr");
-            barcode.innerHTML = row;
-            document.getElementById("table").appendChild(barcode);
+        else{
+            for(let i = 0; i < quantityV; i++){
+                varianNumber += 1;
+                let row = "<tr><td>" + i + "</td><td>" + variantNumber + "</td></tr>";
+                let barcode = document.createElement("tr");
+                barcode.innerHTML = row;
+                document.getElementById("table").appendChild(barcode);
+            }
         }
-        alert(variantNumber);
     }
     else{
         alert('¡ERROR! No es una cadena valida');
