@@ -6,12 +6,13 @@ function begin(){
     let controlDigit = findLastDigit(addDigits);
     let variantNumber = parseInt(initialV.substr(5,10));
     if(re.test(initialV)) {
-        if(variantNumber + quantityV > 9999999999) {
+        alert(variantNumber+parseInt(quantityV));
+        if(variantNumber + parseInt(quantityV) > 9999999999) {
             alert('!ERROR¡ La cantidad de valores excede el numero permitido');
         }
         else{
             for(let i = 0; i < quantityV; i++){
-                varianNumber += 1;
+                variantNumber += 1;
                 let row = "<tr><td>" + i + "</td><td>" + variantNumber + "</td></tr>";
                 let barcode = document.createElement("tr");
                 barcode.innerHTML = row;
@@ -21,7 +22,7 @@ function begin(){
     }
     else{
         alert('¡ERROR! No es una cadena valida');
-    }
+    }   
 }
 
 function multiplyDigits(initialV){
