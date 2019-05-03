@@ -2,8 +2,6 @@ function begin(){
     let re = /9[1-9][0-9]{3}[0-9]{10}/;
     let initialV = document.getElementById("initialValue").value;
     let quantityV = document.getElementById("quantityValues").value;
-    let addDigits = multiplyDigits(initialV);
-    let controlDigit = findLastDigit(addDigits);
     let variantNumber = parseInt(initialV.substr(5,10));
     if(re.test(initialV)) {
         alert(variantNumber+parseInt(quantityV));
@@ -13,7 +11,11 @@ function begin(){
         else{
             for(let i = 0; i < quantityV; i++){
                 variantNumber += 1;
-                let row = "<tr><td>" + i + "</td><td>" + variantNumber + "</td></tr>";
+                let result = initialV.substr(0,5) + variantNumber.toString();
+                let addDigits = multiplyDigits(result);
+                let controlDigit = findLastDigit(addDigits);
+                alert(controlDigit);
+                let row = "<tr><td>" + i + "</td><td>" + result + controlDigit + "</td></tr>";
                 let barcode = document.createElement("tr");
                 barcode.innerHTML = row;
                 document.getElementById("table").appendChild(barcode);
