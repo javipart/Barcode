@@ -2,19 +2,18 @@ function begin(){
     let re = /9[1-9][0-9]{3}[0-9]{10}/;
     let initialV = document.getElementById("initialValue").value;
     let quantityV = document.getElementById("quantityValues").value;
+    clean();
     let variantNumber = parseInt(initialV.substr(5,10));
     if(re.test(initialV)) {
-        alert(variantNumber+parseInt(quantityV));
         if(variantNumber + parseInt(quantityV) > 9999999999) {
             alert('!ERROR¡ La cantidad de valores excede el numero permitido');
         }
         else{
-            for(let i = 0; i < quantityV; i++){
+            for(let i = 1; i <= quantityV; i++){
                 variantNumber += 1;
                 let result = initialV.substr(0,5) + variantNumber.toString();
                 let addDigits = multiplyDigits(result);
                 let controlDigit = findLastDigit(addDigits);
-                alert(controlDigit);
                 let row = "<tr><td>" + i + "</td><td>" + result + controlDigit + "</td></tr>";
                 let barcode = document.createElement("tr");
                 barcode.innerHTML = row;
@@ -24,7 +23,7 @@ function begin(){
     }
     else{
         alert('¡ERROR! No es una cadena valida');
-    }   
+    }
 }
 
 function multiplyDigits(initialV){
@@ -63,4 +62,24 @@ function findLastDigit(sum){
         controlDigit = rest;
     }
     return controlDigit;
+}
+
+function onlyNumbers(e){
+    let key = (e.which) ? e.which : e.keyCode;
+    if(key >= 48 && key <= 57){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+function clean(){
+    document.getElementById("initialValue").value = "";
+    document.getElementById("quantityValues").value = "";
+    var Parent = document.getElementById("table");
+    while(Parent.hasChildNodes())
+    {
+        Parent.removeChild(Parent.firstChild);
+    }
 }

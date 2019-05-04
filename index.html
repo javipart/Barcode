@@ -10,17 +10,17 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div>
-      <input type="number" placeholder="Valor Inicial" id="initialValue">
+    <div class="container" style="padding-left: 20%; padding-right: 20%; padding-top: 4%;">
+      <input type="text" placeholder="Valor Inicial" maxlength="15" id="initialValue" onkeypress="return onlyNumbers(event)">
       <input type="number" placeholder="Numero de valores" id="quantityValues">
       <button onclick="begin()">Generar</button>
     </div>
-    <div>
-      <table>
-        <thead>
+    <div class="container" style="padding-left: 30%; padding-right: 30%; padding-top: 1%;">
+      <table class="table">
+        <thead class="thead-dark">
           <tr>
-            <th><abbr title="Numero">Numero</abbr></th>
-            <th><abbr title="Valor">Valor</abbr></th>
+            <th scope="col" style="width:100px">Numero</th>
+            <th scope="col">Valor</th>
           </tr>
         </thead>
         <tbody id="table">
@@ -30,8 +30,8 @@
     </div>
   </body>
   <footer class="footer">
-    <div class="container">
-      <div class="content has-text-centered">
+    <div class="container" style="padding-left: 20%; padding-right: 20%;">
+      <div style="text-align:center">
         <p><strong>UPTC</strong></p>
         <p>Javier Pardo</p>
       </div>
