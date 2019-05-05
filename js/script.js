@@ -4,6 +4,7 @@ function begin(){
     let quantityV = document.getElementById("quantityValues").value;
     clean();
     let variantNumber = parseInt(initialV.substr(5,10));
+    let zero = '0';
     if(re.test(initialV)) {
         if(variantNumber + parseInt(quantityV) > 9999999999) {
             alert('!ERROR¡ La cantidad de valores excede el numero permitido');
@@ -11,7 +12,8 @@ function begin(){
         else{
             for(let i = 1; i <= quantityV; i++){
                 variantNumber += 1;
-                let result = initialV.substr(0,5) + variantNumber.toString();
+                let variantNumberStr = zero.repeat(10 - variantNumber.toString().length) + variantNumber.toString();
+                let result = initialV.substr(0,5) + variantNumberStr;
                 let addDigits = multiplyDigits(result);
                 let controlDigit = findLastDigit(addDigits);
                 let row = "<tr><td>" + i + "</td><td>" + result + controlDigit + "</td></tr>";
